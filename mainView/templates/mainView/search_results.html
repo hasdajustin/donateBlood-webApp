@@ -1,0 +1,25 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+  <div style="max-width: 600px; margin: 40px auto; text-align: center; font-family: Arial, sans-serif;">
+    <h2>Search Results</h2>
+
+    <p><strong>Blood Group:</strong> {{ blood_group }}</p>
+    <p><strong>Area:</strong> {{ area }}</p>
+
+    {% if donors %}
+      <ul style="list-style: none; padding: 0;">
+        {% for donor in donors %}
+          <li style="background: #b1b1b1; margin: 10px 0; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); text-align: left;">
+            <strong>Name:</strong> {{ donor.full_name }}, <br>
+            <strong>Blood Group:</strong> {{ donor.blood_group }}, <br>
+            <strong>Area:</strong> {{ donor.area }}, <br>
+            <strong>Phone:</strong> {{ donor.phone }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No donors found.</p>
+    {% endif %}
+  </div>
+{% endblock %}

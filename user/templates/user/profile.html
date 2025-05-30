@@ -1,0 +1,47 @@
+{% extends "templates/base.html" %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block content %}
+<div class="container my-5 shadow rounded p-3">
+  <div class="row">
+    <!-- Edit Profile Form (Left Column) -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center text-danger py-2 rounded mb-3">Edit Profile</h3>
+          <hr>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-danger w-100 mt-2">Save Changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Information (Right Column) -->
+    <div class="col-md-6 rounded">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center text-danger py-2 rounded mb-3">My Information</h3>
+          <hr>
+          <p>
+            <strong>Username:</strong> {{ user.username }} 
+            <br>
+            <strong>Full Name:</strong> {{ user_profile.full_name }} 
+            <br>
+            <strong>Age:</strong> {{ user_profile.age }} 
+            <br>
+            <strong>Blood Group:</strong> {{ user_profile.blood_group }} 
+            <br>
+            <strong>Area:</strong> {{ user_profile.area }} 
+            <br>
+            <strong>Phone:</strong> {{ user_profile.phone }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+
+.mainView{
+    padding: 150px 0px 225px 0px!important;
+}
+
+
+
+
+/* Mobile (up to 599px) */
+@media screen and (max-width: 576px) {
+  .mainView{
+    padding: 50px 0px 130px 0px!important;
+}
+}
+
+/* Tablet (577px to 768px) */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .mainView{
+    /*padding: 150px 0px 225px 0px!important;*/
+  }
+}

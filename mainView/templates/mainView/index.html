@@ -1,0 +1,48 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}Home - Donate Blood{% endblock %}
+
+{% block content %}
+<div class="container mainView my-5 shadow rounded">
+  <h1 class="mb-4 text-center text-danger fw-bold ">Find a Blood Donor</span> Near You</h1>
+
+  <form method="POST" action="{% url 'search_donors' %}">
+     {% csrf_token %}
+    <div class="row inner_mainView g-3 justify-content-center">
+      <div class="col-md-4">
+        <label for="blood_group" class="form-label">Select Blood Group</label>
+        <select id="blood_group" name="blood_group" class="form-select" required>
+          <option value="" disabled selected>Select blood group</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="area" class="form-label">Select Area</label>
+        <select id="area" name="area" class="form-select" required>
+          <option value="" disabled selected>Select area</option>
+          <option value="Dhaka">Dhaka</option>
+          <option value="Chittagong">Chittagong</option>
+          <option value="Khulna">Khulna</option>
+          <option value="Rajshahi">Rajshahi</option>
+          <option value="Barisal">Barisal</option>
+          <option value="Sylhet">Sylhet</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Mymensingh">Mymensingh</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 d-flex align-items-end">
+        <button type="submit" class="btn btn-danger w-100">Search Donors</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
