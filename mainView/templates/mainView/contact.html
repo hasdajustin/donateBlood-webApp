@@ -3,5 +3,31 @@
 {% block title %}Contact - Donate Blood{% endblock %}
 
 {% block content %}
-    <h2>Contact page</h2>
+    <div class="container mainView my-5 shadow rounded p-4">
+  <h2 class="mb-4 text-center text-danger fw-bold">Contact Us</h2>
+
+  <form method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="col-12">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+      </div>
+
+      <div class="col-12 d-flex justify-content-center d-grid">
+        <button type="submit" class="btn btn-danger">Send Message</button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock %}
